@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kickz by Chris — Buy, Sell &amp; Consign Authentic Sneakers</title>
+<meta name="description" content="Kickz by Chris — 200+ pairs of authenticated Jordans, Dunks, Yeezys, New Balance and more. Shop new and pre-owned, consign your pairs, DM @kickz_by__chris.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#0b0b0c; --bg2:#121214; --card:#161618; --card2:#1c1c1f;
+    --line:#26262a; --line2:#333338;
+    --ink:#f7f7f5; --muted:#a0a0a8; --dim:#6e6e78;
+    --accent:#ffffff; --hot:#ff2d2d; --ok:#3ddc84;
+    --display:'Archivo Black',Impact,'Arial Black',system-ui,sans-serif;
+    --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --max:1340px;
+  }
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;
+       -webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body.locked{overflow:hidden}
+  img,svg{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button,select,input{font:inherit;color:inherit}
+  h1,h2,h3,h4{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:-.005em;margin:0;line-height:.98}
+  .wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+  .eyebrow{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+  .muted{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border:1px solid transparent;border-radius:2px;
+       font-weight:800;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;cursor:pointer;transition:.18s;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-white{background:#fff;color:#0b0b0c}
+  .btn-white:hover{background:#d9d9d9}
+  .btn-line{border-color:var(--line2);background:transparent;color:var(--ink)}
+  .btn-line:hover{border-color:#fff}
+  .btn-hot{background:var(--hot);color:#fff}
+  .btn-hot:hover{filter:brightness(1.1)}
+  .btn-ig{background:#fff;color:#0b0b0c;border-color:#fff}
+  .btn-ig:hover{background:#000;color:#fff}
+  .btn-ig:hover svg{fill:#fff}
+  .btn-ig svg{fill:#0b0b0c;width:15px;height:15px}
+
+  /* ============ announcement ============ */
+  .announce{background:var(--accent);color:#0b0b0c;text-align:center;font-size:11.5px;font-weight:800;letter-spacing:.13em;
+       text-transform:uppercase;padding:9px 20px;position:relative;z-index:70}
+  .announce b{color:var(--hot)}
+  @media(max-width:600px){.announce{font-size:10.5px;letter-spacing:.08em}}
+
+  /* ============ header ============ */
+  header{position:sticky;top:0;z-index:60;background:rgba(11,11,12,.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;gap:26px;height:72px}
+  .logo{display:flex;flex-direction:column;line-height:1;gap:3px}
+  .logo b{font-family:var(--display);font-size:20px;letter-spacing:-.02em}
+  .logo span{font-size:8.5px;letter-spacing:.28em;font-weight:800;color:var(--dim);text-transform:uppercase}
+  .mainnav{display:flex;gap:24px;font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+  .mainnav a{padding:6px 0;border-bottom:2px solid transparent;color:#d6d6dc;transition:.15s}
+  .mainnav a:hover{color:#fff;border-color:#fff}
+  .navtools{margin-left:auto;display:flex;align-items:center;gap:9px}
+  .iconbtn{display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line);border-radius:2px;background:transparent;cursor:pointer;position:relative}
+  .iconbtn:hover{border-color:#fff}
+  .iconbtn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:1.7}
+  .bagcount{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--hot);color:#fff;
+       font-size:10px;font-weight:900;display:grid;place-items:center;font-family:var(--sans)}
+  .searchbar{display:none;gap:0;align-items:center;border:1px solid var(--line2);border-radius:2px;background:var(--bg2);overflow:hidden}
+  .searchbar.on{display:flex}
+  .searchbar input{background:none;border:none;outline:none;padding:9px 13px;font-size:13px;width:190px}
+  .searchbar button{background:#fff;color:#0b0b0c;border:none;padding:9px 14px;font-size:11px;font-weight:900;letter-spacing:.08em;cursor:pointer}
+  .mobilebar{display:none;gap:14px;overflow-x:auto;padding:12px 0;border-top:1px solid var(--line);font-size:11.5px;font-weight:800;
+       letter-spacing:.1em;text-transform:uppercase;color:var(--muted);-ms-overflow-style:none;scrollbar-width:none}
+  .mobilebar::-webkit-scrollbar{display:none}
+  .mobilebar a{white-space:nowrap}
+  @media(max-width:1080px){.mainnav{display:none}.mobilebar{display:flex}}
+  @media(max-width:640px){.nav{height:64px;gap:14px}.logo b{font-size:17px}.searchbar input{width:130px}}
+
+  /* ============ hero ============ */
+  .hero{position:relative;border-bottom:1px solid var(--line);background:#0d0d0f;overflow:hidden}
+  .hero-inner{display:grid;grid-template-columns:1.05fr .95fr;min-height:560px}
+  .hero-copy{padding:76px 60px 76px 0;display:flex;flex-direction:column;justify-content:center}
+  .hero-copy h1{font-size:clamp(40px,5.6vw,74px);line-height:.94}
+  .hero-copy h1 span{color:transparent;-webkit-text-stroke:1.4px #fff}
+  .hero-copy p{max-width:46ch;color:#c2c2cb;font-size:16px;margin:20px 0 28px}
+  .hero-btns{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line)}
+  .hero-trust div{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:8px}
+  .hero-trust div::before{content:"";width:6px;height:6px;background:var(--ok);border-radius:50%}
+  .hero-art{position:relative;background:linear-gradient(180deg,#101012,#0b0b0c);border-left:1px solid var(--line);display:grid;place-items:center;padding:40px}
+  .hero-art .grid-lines{position:absolute;inset:0;opacity:.5;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:54px 54px}
+  .hero-art .glow{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,45,45,.22),transparent 65%);filter:blur(30px)}
+  .hero-art svg{position:relative;width:100%;max-width:520px;transform:rotate(-8deg);filter:drop-shadow(0 40px 34px rgba(0,0,0,.75))}
+  .hero-stamp{position:absolute;bottom:26px;right:26px;border:1px solid var(--line2);padding:12px 16px;background:rgba(11,11,12,.8);text-align:right}
+  .hero-stamp b{font-family:var(--display);font-size:22px;display:block}
+  .hero-stamp span{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);font-weight:800}
+  @media(max-width:960px){.hero-inner{grid-template-columns:1fr}.hero-copy{padding:52px 0 40px}.hero-art{border-left:0;border-top:1px solid var(--line);padding:28px}.hero-art svg{max-width:360px}}
+
+  /* ============ trust strip ============ */
+  .trust{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+  .trust div{padding:34px 26px;border-right:1px solid var(--line)}
+  .trust div:last-child{border-right:0}
+  .trust h3{font-size:16px;margin-bottom:8px}
+  .trust p{margin:0;color:var(--muted);font-size:13.5px;max-width:38ch}
+  .trust .ico{width:26px;height:26px;margin-bottom:14px;stroke:#fff;fill:none;stroke-width:1.6}
+  @media(max-width:880px){.trust{grid-template-columns:1fr}.trust div{border-right:0;border-bottom:1px solid var(--line)}}
+
+  /* ============ category tiles ============ */
+  .cats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+  .cat{position:relative;background:#101012;padding:38px 26px 32px;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;
+       transition:.22s;overflow:hidden;cursor:pointer}
+  .cat:hover{background:#18181b}
+  .cat .big{position:absolute;top:-16px;right:10px;font-family:var(--display);font-size:96px;color:#1e1e22;letter-spacing:-.06em;transition:.25s}
+  .cat:hover .big{color:#2a2a30}
+  .cat h3{font-size:23px;position:relative}
+  .cat span{font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-top:8px;position:relative}
+  .cat .arrow{position:absolute;bottom:26px;right:24px;color:var(--dim);transition:.2s;font-size:15px}
+  .cat:hover .arrow{color:#fff;transform:translateX(4px)}
+  @media(max-width:900px){.cats{grid-template-columns:1fr 1fr}}
+
+  /* ============ product sections ============ */
+  .section{padding:60px 0}
+  .sechead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:26px;
+       border-bottom:1px solid var(--line);padding-bottom:16px}
+  .sechead h2{font-size:clamp(24px,3.2vw,36px)}
+  .sechead .link{font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line2);padding-bottom:3px}
+  .sechead .link:hover{color:#fff;border-color:#fff}
+  .sechead p{margin:6px 0 0;color:var(--muted);font-size:13.5px;max-width:52ch}
+
+  /* ============ cards ============ */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:22px 18px}
+  .grid.tight{grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:20px 14px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;
+       transition:.2s border-color,.2s transform;cursor:pointer;text-align:left;padding:0}
+  .card:hover{border-color:#4a4a52;transform:translateY(-3px)}
+  .thumb{position:relative;aspect-ratio:1/.88;padding:22px 16px 12px;display:grid;place-items:center;overflow:hidden;
+       background:linear-gradient(180deg,var(--c1) 0%,color-mix(in srgb,var(--c1) 40%,#0e0e10) 100%)}
+  .thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(70% 60% at 50% 12%,rgba(255,255,255,.16),transparent 70%)}
+  .thumb svg{position:relative;width:100%;filter:drop-shadow(0 16px 14px rgba(0,0,0,.5));transition:.3s transform}
+  .card:hover .thumb svg{transform:scale(1.05) rotate(-3deg)}
+  .flag{position:absolute;top:0;left:0;z-index:3;font-size:9.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px}
+  .flag.new{background:#fff;color:#0b0b0c}
+  .flag.pre{background:#2a2a2f;color:#e2e2e6;border-right:1px solid var(--line2);border-bottom:1px solid var(--line2)}
+  .flag.sold{background:#000;color:#fff;top:auto;bottom:0;left:0}
+  .flag.hot{background:var(--hot);color:#fff}
+  .cardinfo{padding:13px 13px 15px;display:flex;flex-direction:column;gap:7px;flex:1;border-top:1px solid var(--line)}
+  .cardinfo h3{font-family:var(--sans);font-size:13.5px;font-weight:700;text-transform:none;letter-spacing:0;line-height:1.35;
+       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+  .variants{margin:0;font-size:11.5px;color:var(--dim);line-height:1.4;
+       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-family:var(--sans);font-weight:800;font-size:15px;letter-spacing:.01em}
+  .price small{font-weight:600;color:var(--dim);font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+  .stockp{font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--ok)}
+  .stockp.out{color:var(--dim)}
+  .qadd{margin-top:2px;border:1px solid var(--line2);background:transparent;color:#dcdce2;font-size:11px;font-weight:900;
+       letter-spacing:.11em;text-transform:uppercase;padding:9px;border-radius:2px;cursor:pointer;transition:.16s}
+  .qadd:hover{background:#fff;color:#0b0b0c;border-color:#fff}
+  .qadd:disabled{color:var(--dim);cursor:not-allowed}
+  .qadd:disabled:hover{background:transparent;color:var(--dim);border-color:var(--line2)}
+  .band{display:grid;grid-template-columns:repeat(auto-fill,minmax(172px,1fr));gap:14px}
+
+  /* ============ shop layout ============ */
+  .shopwrap{display:grid;grid-template-columns:246px 1fr;gap:34px;align-items:start;padding:44px 0 70px}
+  aside.side{position:sticky;top:96px}
+  .sblock{border-top:1px solid var(--line);padding:18px 0}
+  .sblock:first-child{border-top:0;padding-top:0}
+  .sblock h4{font-family:var(--sans);font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#dcdce2;margin-bottom:14px}
+  .slist{display:flex;flex-direction:column;gap:1px}
+  .sitem{display:flex;justify-content:space-between;gap:10px;background:none;border:none;text-align:left;cursor:pointer;
+       font-size:13.5px;color:var(--muted);padding:7px 0;transition:.15s}
+  .sitem:hover{color:#fff}
+  .sitem[aria-pressed="true"]{color:#fff;font-weight:700}
+  .sitem small{color:var(--dim);font-size:11.5px}
+  .sitem[aria-pressed="true"] small{color:#fff}
+  .szbtns{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .szbtn{border:1px solid var(--line);background:conic-gradient(from 90deg,#f7f7f5 0 25%,#e7e7e2 0 50%,#f7f7f5 0 75%,#eef0f2 0);
+       color:#0b0b0c;font-size:11.5px;font-weight:800;padding:8px 0;border-radius:2px;cursor:pointer;transition:.15s}
+  .szbtn:hover{border-color:#fff}
+  .szbtn[aria-pressed="true"]{background:#ff2d2d;border-color:#ff2d2d;color:#fff}
+  .dedit{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+  .dedit input{background:var(--bg2);border:1px solid var(--line);border-radius:2px;padding:8px 10px;font-size:13px;outline:none;width:100%}
+  .dedit input:focus{border-color:#fff}
+  .clearf{width:100%;margin-top:8px}
+  .shopbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px;
+       border-bottom:1px solid var(--line);padding-bottom:14px}
+  .shopbar .count{font-size:12.5px;color:var(--muted);font-weight:600}
+  .shopbar select{background:var(--bg2);border:1px solid var(--line);border-radius:2px;padding:9px 12px;font-size:12.5px;outline:none;cursor:pointer}
+  .shopbar select:focus{border-color:#fff}
+  .activetags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .atag{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:var(--card);font-size:11px;font-weight:700;
+       letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;cursor:pointer}
+  .atag:hover{border-color:var(--hot)}
+  .atag b{color:var(--hot)}
+  @media(max-width:900px){.shopwrap{grid-template-columns:1fr;gap:22px}aside.side{position:static}
+    aside.side .sblocks-wrap{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}}
+  @media(max-width:560px){aside.side .sblocks-wrap{grid-template-columns:1fr}}
+
+  /* ============ editorial / services ============ */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .split > div{background:#0f0f11;padding:52px 44px}
+  .split h2{font-size:clamp(24px,3.4vw,40px);margin:14px 0 16px}
+  .split p{color:var(--muted);font-size:14.5px}
+  .split ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:11px}
+  .split li{display:flex;gap:11px;font-size:14px;color:#d4d4da}
+  .split li i{flex:0 0 auto;width:17px;height:17px;border:1px solid var(--line2);display:grid;place-items:center;font-style:normal;font-size:10px;color:var(--ok);margin-top:2px}
+  @media(max-width:880px){.split{grid-template-columns:1fr}.split > div{padding:38px 24px}}
+
+  /* ============ faq ============ */
+  .faqw{max-width:900px;margin:0 auto}
+  details.faq{border-bottom:1px solid var(--line)}
+  details.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:700;font-size:15px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"";width:11px;height:11px;border-right:1.6px solid #fff;border-bottom:1.6px solid #fff;
+       transform:rotate(45deg);transition:.22s;flex:0 0 auto}
+  details.faq[open] summary::after{transform:rotate(-135deg)}
+  details.faq p{margin:0 0 22px;color:var(--muted);font-size:14px;max-width:80ch}
+
+  /* ============ visit / contact ============ */
+  .visit{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line)}
+  .visit > div{background:#0f0f11;padding:40px 32px}
+  .visit h3{font-size:18px;margin-bottom:12px}
+  .visit p{margin:0 0 6px;color:var(--muted);font-size:13.5px}
+  .visit a{color:#fff;border-bottom:1px solid var(--line2)}
+  .visit a:hover{border-color:#fff}
+  @media(max-width:880px){.visit{grid-template-columns:1fr}}
+
+  /* ============ footer ============ */
+  footer{border-top:1px solid var(--line);background:#08080a;padding:54px 0 30px;margin-top:0}
+  .fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:30px}
+  footer h4{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;margin-bottom:15px;color:#dcdce2}
+  footer ul{list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--muted)}
+  footer li{margin:8px 0}
+  footer a:hover{color:#fff}
+  .fbar{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;border-top:1px solid var(--line);margin-top:38px;padding-top:20px;
+       font-size:11.5px;color:var(--dim);letter-spacing:.04em}
+  @media(max-width:880px){.fgrid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.fgrid{grid-template-columns:1fr}}
+
+  /* ============ product modal ============ */
+  .overlay{position:fixed;inset:0;background:rgba(4,4,5,.75);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:.24s;z-index:90}
+  .overlay.on{opacity:1;pointer-events:auto}
+  .modal{position:fixed;z-index:100;left:50%;top:50%;transform:translate(-50%,-46%) scale(.98);width:min(980px,calc(100% - 32px));
+       max-height:88vh;overflow:auto;background:var(--bg2);border:1px solid var(--line2);border-radius:3px;opacity:0;pointer-events:none;transition:.24s}
+  .modal.on{opacity:1;pointer-events:auto;transform:translate(-50%,-50%) scale(1)}
+  .mclose{position:absolute;top:12px;right:12px;z-index:3;width:36px;height:36px;border:1px solid var(--line2);background:rgba(0,0,0,.5);cursor:pointer;font-size:15px}
+  .mclose:hover{border-color:var(--hot);color:var(--hot)}
+  .minner{display:grid;grid-template-columns:1fr 1fr}
+  .mimg{position:relative;background:linear-gradient(180deg,var(--c1),color-mix(in srgb,var(--c1) 35%,#0d0d0f));display:grid;place-items:center;padding:46px 34px;border-right:1px solid var(--line);min-height:340px}
+  .mimg svg{width:100%;filter:drop-shadow(0 24px 22px rgba(0,0,0,.6))}
+  .mimg .idx{position:absolute;bottom:14px;left:16px;font-size:10.5px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+  .mbody{padding:32px 30px 34px}
+  .mbody h2{font-size:clamp(22px,2.7vw,31px);line-height:1.02}
+  .msku{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:800;margin:12px 0 0}
+  .mprice{font-family:var(--display);font-size:30px;margin:18px 0 4px}
+  .mprice small{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+  .mnote{font-size:12.5px;color:var(--muted);margin:0 0 20px}
+  .mlabel{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#dcdce2;margin:22px 0 10px;display:flex;justify-content:space-between}
+  .mlabel span{color:var(--dim);font-weight:700;letter-spacing:.05em;text-transform:none}
+  .mbtns{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+  .mbtns .btn{flex:1;min-width:180px}
+  .mmeta{border-top:1px solid var(--line);margin-top:26px;padding-top:18px;font-size:12.5px;color:var(--muted);display:flex;flex-direction:column;gap:8px}
+  .mmeta b{color:#e6e6ea;font-weight:700}
+  @media(max-width:780px){.minner{grid-template-columns:1fr}.mimg{border-right:0;border-bottom:1px solid var(--line);padding:30px 24px;min-height:230px}.mbody{padding:24px 20px 28px}}
+
+  /* ============ toast ============ */
+  .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,150%);background:#fff;color:#0b0b0c;font-weight:800;font-size:13px;
+       letter-spacing:.03em;padding:13px 22px;border-radius:2px;z-index:130;transition:transform .28s;max-width:90vw;text-align:center}
+  .toast.on{transform:translate(-50%,0)}
+  :focus-visible{outline:2px solid #fff;outline-offset:2px}
+  .empty{grid-column:1/-1;text-align:center;padding:70px 20px;border:1px solid var(--line);color:var(--muted);border-radius:3px}
+
+  /* ============ pickup list drawer ============ */
+  .bagdrawer{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);z-index:100;background:#0e0e10;
+       border-left:1px solid var(--line2);display:flex;flex-direction:column;transform:translateX(102%);
+       transition:transform .3s cubic-bezier(.3,.8,.25,1)}
+  .bagdrawer.on{transform:none}
+  @media(max-width:640px){.bagdrawer{width:100%;height:90%;top:auto;bottom:0;border-left:0;border-top:1px solid var(--line2);
+       border-radius:14px 14px 0 0;transform:translateY(102%)}.bagdrawer.on{transform:none}}
+  .baghead{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:20px 20px 16px;border-bottom:1px solid var(--line)}
+  .bagclose{width:36px;height:36px;border:1px solid var(--line2);background:transparent;cursor:pointer;font-size:14px;flex:0 0 auto}
+  .bagclose:hover{border-color:var(--hot);color:var(--hot)}
+  .bagbody{flex:1;overflow:auto;padding:8px 20px}
+  .bagfoot{padding:18px 20px 24px;border-top:1px solid var(--line2);background:#0a0a0c}
+  .brow{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);margin-bottom:7px}
+  .brow.big{font-family:var(--display);font-size:22px;color:var(--ink);text-transform:uppercase;margin:12px 0 14px}
+  .bagbtns{display:flex;gap:8px;flex-wrap:wrap}
+  .bagbtns .btn{flex:1;min-width:150px}
+  .dmpreview{margin-top:12px;background:#050507;border:1px solid var(--line);padding:12px;
+       font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;line-height:1.6;color:#a6a6b0;white-space:pre-wrap;max-height:150px;overflow:auto}
+  .lineitem{display:grid;grid-template-columns:66px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+  .lthumb{width:66px;height:56px;border:1px solid var(--line);border-radius:2px;padding:4px;display:grid;place-items:center;
+       background:linear-gradient(180deg,var(--c1),color-mix(in srgb,var(--c1) 30%,#0c0c0e))}
+  .lthumb svg{width:100%}
+  .lineitem b{display:block;font-size:13px;font-weight:700;line-height:1.3}
+  .lineitem span{font-size:11.5px;color:var(--dim)}
+  .lright{display:flex;align-items:center;gap:8px}
+  .lprice{font-weight:800;font-size:13.5px;color:#fff}
+  .rm{background:none;border:none;color:var(--dim);cursor:pointer;font-size:14px;padding:4px}
+  .rm:hover{color:var(--hot)}
+  .qadd{display:block;text-align:center}
+  .qadd[aria-disabled="true"]{color:var(--dim);cursor:not-allowed}
+  .qadd[aria-disabled="true"]:hover{background:transparent;color:var(--dim);border-color:var(--line2)}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">Free shipping over $200 · <b>100% authentic</b> or your money back · DM <b>@kickz_by__chris</b> to cop</div>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><b>KICKZ BY CHRIS</b><span>Authenticated Sneakers</span></a>
+    <nav class="mainnav">
+      <a href="#shop">New Arrivals</a>
+      <a href="#shop" data-jump="pre">Pre-Owned</a>
+      <a href="#shop" data-jump="under150">Under $150</a>
+      <a href="#consign">Sell / Consign</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="navtools">
+      <form class="searchbar" id="searchbar" role="search">
+        <input id="searchInput" type="search" placeholder="Search Jordan 4, Panda…" aria-label="Search">
+        <button type="submit">GO</button>
+      </form>
+      <button class="iconbtn" id="searchToggle" aria-label="Search">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+      </button>
+      <a class="iconbtn" href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener" aria-label="Message on Instagram">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="#fff"/></svg>
+      </a>
+      <button class="iconbtn" id="openBag" aria-label="Open pickup bag">
+        <svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        <span class="bagcount" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
+  <div class="wrap"><div class="mobilebar">
+    <a href="#shop">New Arrivals</a><a href="#shop" data-jump="pre">Pre-Owned</a><a href="#shop" data-jump="under150">Under $150</a>
+    <a href="#shop" data-jump="Jordan">Jordan</a><a href="#shop" data-jump="Nike">Nike</a><a href="#shop" data-jump="Yeezy">Yeezy</a>
+    <a href="#shop" data-jump="New Balance">New Balance</a><a href="#consign">Sell / Consign</a><a href="#faq">FAQ</a>
+  </div></div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Since 2019 · 200+ pairs in the vault</p>
+          <h1>Unlock<br>the <span>Vault</span></h1>
+          <p>200+ pairs of authenticated Jordans, Dunks, Yeezys, New Balance, Asics and designer pieces.
+            Shop new and pre-owned, consign your own pairs, and talk to a real person in DMs — never a bot,
+            never a middleman markup.</p>
+          <div class="hero-btns">
+            <a class="btn btn-white" href="#shop">Shop all shoes</a>
+            <a class="btn btn-ig" href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.1 1.1 0 1.8.2 2.4.5.6.2 1.1.6 1.6 1s.8 1 1 1.6c.3.6.5 1.3.5 2.4.1 1 .1 1.4.1 4.1s0 3.1-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.6-.6 1.1-1 1.6s-1 .8-1.6 1c-.6.3-1.3.5-2.4.5-1 .1-1.4.1-4.1.1s-3.1 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.6-.2-1.1-.6-1.6-1s-.8-1-1-1.6c-.3-.6-.5-1.3-.5-2.4C2 15.1 2 14.7 2 12s0-3.1.1-4.1c0-1.1.2-1.8.5-2.4.2-.6.6-1.1 1-1.6s1-.8 1.6-1c.6-.3 1.3-.5 2.4-.5C8.9 2 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.3-8.5a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+              DM to cop
+            </a>
+          </div>
+          <div class="hero-trust">
+            <div>100% Authentic</div><div>New &amp; Pre-Owned</div><div>Shipping Worldwide</div><div>Consignment Open</div>
+          </div>
+        </div>
+        <div class="hero-art">
+          <div class="grid-lines"></div>
+          <div class="glow"></div>
+          <svg viewBox="0 0 300 170" aria-hidden="true">
+            <ellipse cx="150" cy="158" rx="112" ry="9" fill="#000" opacity=".55"/>
+            <path d="M14 143 C9 132 20 127 32 125 L262 116 C285 114 293 124 288 136 C283 148 262 151 244 151 L40 149 C25 148 16 148 14 143 Z" fill="#08080a"/>
+            <path d="M15 139 C11 130 20 125 32 123 L264 114 C284 112 291 120 287 129 C283 138 262 143 246 143 L40 142 C26 142 17 143 15 139 Z" fill="#f4f4f1"/>
+            <path d="M40 124 C36 100 50 80 80 71 C99 65 113 55 127 48 C147 39 164 45 169 62 L182 104 C196 112 222 114 256 113 L40 124 Z" fill="#e6e6e9"/>
+            <ellipse cx="52" cy="112" rx="16" ry="11" transform="rotate(-8 52 112)" fill="#fafaf8"/>
+            <path d="M62 118 C94 112 128 92 160 68" stroke="#ff2d2d" stroke-width="9" stroke-linecap="round" fill="none"/>
+            <g stroke="#f7f7f5" stroke-width="5" stroke-linecap="round">
+              <line x1="78" y1="101" x2="94" y2="90"/><line x1="88" y1="90" x2="104" y2="79"/>
+              <line x1="98" y1="79" x2="114" y2="68"/><line x1="108" y1="68" x2="124" y2="57"/>
+            </g>
+            <ellipse cx="140" cy="58" rx="29" ry="11" transform="rotate(-24 140 58)" fill="rgba(8,8,10,.65)"/>
+            <ellipse cx="140" cy="58" rx="29" ry="11" transform="rotate(-24 140 58)" fill="none" stroke="#ff2d2d" stroke-width="3"/>
+            <rect x="246" y="100" width="22" height="14" rx="4" transform="rotate(-6 257 107)" fill="#ff2d2d"/>
+          </svg>
+          <div class="hero-stamp"><b>200+</b><span>Pairs in stock</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="wrap"><div class="trust">
+    <div>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 8.6 8 10 4.6-1.4 8-5 8-10V6l-8-4z"/><path d="m9 12 2 2 4-4"/></svg>
+      <h3>100% Authentic</h3>
+      <p>Every pair is inspected and verified before it's listed and again before it ships. Photos, date codes and receipts on request.</p>
+    </div>
+    <div>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M3 7h13l5 5v5H3z"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg>
+      <h3>Shipping Worldwide</h3>
+      <p>Tracked and double-boxed, with insurance available. Local pickup and meetups available for genuine buyers.</p>
+    </div>
+    <div>
+      <svg class="ico" viewBox="0 0 24 24"><path d="M4 20V8l8-4 8 4v12"/><path d="M9 20v-6h6v6"/></svg>
+      <h3>Sell, Consign &amp; Trade</h3>
+      <p>Got pairs sitting in boxes? Cash offers, consignment payouts or trades — send photos in DMs and I'll price them straight.</p>
+    </div>
+  </div></div>
+
+  <!-- CATEGORIES -->
+  <nav class="cats" aria-label="Shop by category">
+    <div class="cat" data-jump="Jordan"><span class="big">01</span><h3>Jordan</h3><span>Retros &amp; OG colorways</span><span class="arrow">→</span></div>
+    <div class="cat" data-jump="Nike"><span class="big">02</span><h3>Nike</h3><span>Dunks, AF1 &amp; Air Max</span><span class="arrow">→</span></div>
+    <div class="cat" data-jump="pre"><span class="big">03</span><h3>Pre-Owned</h3><span>Graded &amp; clearly marked</span><span class="arrow">→</span></div>
+    <div class="cat" data-jump="under150"><span class="big">04</span><h3>Under $150</h3><span>Everyday rotations</span><span class="arrow">→</span></div>
+  </nav>
+
+  <!-- TRENDING / NEW ARRIVALS -->
+  <section class="section" id="new">
+    <div class="wrap">
+      <div class="sechead">
+        <div><p class="eyebrow">Fresh in the vault</p><h2>New Arrivals</h2></div>
+        <a class="link" href="#shop">Shop all 200+ →</a>
+      </div>
+      <div class="grid tight" id="bandNew"></div>
+    </div>
+  </section>
+
+  <!-- PRE-OWNED -->
+  <section class="section" id="pre" style="padding-top:0">
+    <div class="wrap">
+      <div class="sechead">
+        <div><p class="eyebrow">Graded, cleaned, clearly marked</p><h2>Pre-Owned</h2></div>
+        <a class="link" href="#shop">View all pre-owned →</a>
+      </div>
+      <div class="grid tight" id="bandPre"></div>
+    </div>
+  </section>
+
+  <!-- UNDER 150 -->
+  <section class="section" id="under150" style="padding-top:0">
+    <div class="wrap">
+      <div class="sechead">
+        <div><p class="eyebrow">No compromises on price</p><h2>Under $150</h2></div>
+        <a class="link" href="#shop">See the full range →</a>
+      </div>
+      <div class="grid tight" id="bandUnder"></div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section id="shop" style="border-top:1px solid var(--line);background:#0d0d0f">
+    <div class="wrap">
+      <div class="shopwrap">
+        <aside class="side">
+          <div class="sblocks-wrap">
+            <div class="sblock">
+              <h4>Shop by Collection</h4>
+              <div class="slist" id="colList"></div>
+            </div>
+            <div class="sblock">
+              <h4>Brand / Category</h4>
+              <div class="slist" id="brandList"></div>
+            </div>
+            <div class="sblock">
+              <h4>Size (US Men's)</h4>
+              <div class="szbtns" id="sizeBtns"></div>
+            </div>
+            <div class="sblock">
+              <h4>Price range ($)</h4>
+              <div class="dedit">
+                <input id="minP" type="number" min="0" placeholder="Min" aria-label="Minimum price">
+                <input id="maxP" type="number" min="0" placeholder="Max" aria-label="Maximum price">
+              </div>
+              <button class="btn btn-line clearf" id="clearFilters">Clear all filters</button>
+            </div>
+          </div>
+        </aside>
+
+        <div>
+          <div class="sechead" style="margin-bottom:22px">
+            <div><p class="eyebrow">Everything currently listed</p><h2>All Shoes</h2></div>
+          </div>
+          <div class="shopbar">
+            <span class="count" id="resCount">Loading…</span>
+            <label style="display:flex;align-items:center;gap:9px;font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase">
+              Sort
+              <select id="sortSel">
+                <option value="featured">Featured</option>
+                <option value="best">Best selling</option>
+                <option value="az">Alphabetically, A–Z</option>
+                <option value="za">Alphabetically, Z–A</option>
+                <option value="low">Price, low to high</option>
+                <option value="high">Price, high to low</option>
+                <option value="new">Date, new to old</option>
+                <option value="old">Date, old to new</option>
+              </select>
+            </label>
+          </div>
+          <div class="activetags" id="activeTags"></div>
+          <div class="grid" id="grid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSIGN / SELL -->
+  <section class="split" id="consign">
+    <div>
+      <p class="eyebrow">Cash or consignment</p>
+      <h2>Sell your pairs<br>to Kickz by Chris</h2>
+      <p>Whether you're cleaning out a closet or moving a whole collection, there's a route for it. No lowball games —
+        I'll tell you exactly what a pair is worth and what I can pay for it today.</p>
+      <ul>
+        <li><i>✓</i> <span><b>Straight cash buyout</b> — fastest option, paid same day on local deals.</span></li>
+        <li><i>✓</i> <span><b>Consignment</b> — I list, photograph and ship; you take a competitive payout when it sells.</span></li>
+        <li><i>✓</i> <span><b>Trades</b> — hyped pairs and bundles welcome, especially Jordan and Travis Scott.</span></li>
+        <li><i>✓</i> <span><b>Collection buying</b> — send one video walkthrough and I'll price the lot.</span></li>
+      </ul>
+      <div class="hero-btns" style="margin-top:26px">
+        <a class="btn btn-white" href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">Send photos in DMs</a>
+        <a class="btn btn-line" href="#faq">How payouts work</a>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow">What I'm paying for right now</p>
+      <h2>Wanted pairs</h2>
+      <p>These move fastest — if you have them in any size, message me first:</p>
+      <ul id="wantedList"></ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sechead" style="justify-content:center;text-align:center;border:0;padding-bottom:0">
+        <div style="text-align:center"><p class="eyebrow">Before you order</p><h2>Frequently Asked Questions</h2></div>
+      </div>
+      <div class="faqw">
+        <details class="faq" open>
+          <summary>Are all of your sneakers authentic?</summary>
+          <p>Every sneaker we sell is 100% authentic, verified in-house before it's listed and checked again before it ships. Every pair is inspected on arrival, and you can always ask for extra photos, date codes, box labels or receipts before paying.</p>
+        </details>
+        <details class="faq">
+          <summary>Do you sell pre-owned sneakers?</summary>
+          <p>Yes. Pre-owned pairs are graded honestly — from "excellent" through to well-loved — cleaned where possible, and clearly marked on the listing with the exact condition, box status and any flaws so there are no surprises.</p>
+        </details>
+        <details class="faq">
+          <summary>How do I place an order?</summary>
+          <p>Build your pickup list on this site, hit "copy", and paste it into our Instagram DMs. We confirm stock and size, send tagged photos, then invoice you. Shipping is confirmed before the pair leaves my hands.</p>
+        </details>
+        <details class="faq">
+          <summary>How much does shipping cost?</summary>
+          <p>Shipping is calculated based on your location and the pairs in your order, and you'll always know the price before you commit. Orders over $200 ship free. Tracked and double-boxed as standard; insurance available on request.</p>
+        </details>
+        <details class="faq">
+          <summary>What is the return policy?</summary>
+          <p>Our goal is for every customer to be totally satisfied. If something isn't right, let us know and we'll work with you to make it right. Some items — clearly marked on the listing — are final sale, including heavily discounted or worn pre-owned pairs.</p>
+        </details>
+        <details class="faq">
+          <summary>Can I consign or sell my sneakers to you?</summary>
+          <p>Absolutely. Send clear photos of the shoes, box label and insoles and we'll come back with a straight cash offer or a consignment arrangement. Cash is paid same day on local deals, and consignment payouts are competitive.</p>
+        </details>
+        <details class="faq">
+          <summary>Do you trade?</summary>
+          <p>Trades are welcome, particularly on hyped pairs and Travis Scott collaborations. Tell us what you have, what you want, and we'll find a trade that works — bundles often get better value than single pairs.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="split" id="about">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Kickz by Chris</h2>
+      <p>Kickz by Chris started with one closet and a habit of buying pairs I couldn't talk myself out of. That closet is now
+        the vault: 200+ pairs spanning rare, limited-edition and sought-after sneakers, plus designer clothing and accessories.</p>
+      <p>Whether you're a seasoned sneakerhead or just starting your collection, there's something here. Every pair is
+        authenticated, honestly graded and priced by someone who actually wears the stuff.</p>
+      <ul>
+        <li><i>✓</i> <span><b>Authenticity guaranteed</b> — verified before listing and before shipping.</span></li>
+        <li><i>✓</i> <span><b>Wide selection</b> — Nike, Jordan, Adidas, Yeezy, New Balance, Asics and more.</span></li>
+        <li><i>✓</i> <span><b>Community driven</b> — built from DMs, repeat buyers and referrals.</span></li>
+        <li><i>✓</i> <span><b>Customer focused</b> — whether you're buying, selling or consigning, the process stays simple.</span></li>
+      </ul>
+    </div>
+    <div>
+      <p class="eyebrow">Sourcing on request</p>
+      <h2>Can't find<br>your pair?</h2>
+      <p>Only a slice of the vault is on this page — and if it isn't in the vault, I'll go and find it. Tell me the model,
+        colorway, size and your budget and I'll hunt it down and come back with photos and a price.</p>
+      <p>Looking for something to match a pair you already own, or hunting a grail you've wanted for years? Send the DM,
+        worst case I tell you it's gone.</p>
+      <div class="hero-btns" style="margin-top:26px">
+        <a class="btn btn-white" href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">Request a pair</a>
+        <a class="btn btn-line" href="https://instagram.com/kickz_by__chris" target="_blank" rel="noopener">Follow @kickz_by__chris</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIT / CONTACT -->
+  <div class="visit" id="contact">
+    <div>
+      <h3>DMs &amp; Orders</h3>
+      <p>Fastest way to reach me.</p>
+      <p><a href="https://instagram.com/kickz_by__chris" target="_blank" rel="noopener">@kickz_by__chris</a></p>
+      <p><a href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">Open a DM →</a></p>
+      <p style="margin-top:8px">Replies usually within 24 hours.</p>
+    </div>
+    <div>
+      <h3>Buying &amp; Consignment</h3>
+      <p>Buy new and pre-owned, sell outright or consign a collection. Cash offers and trade appraisals by DM.</p>
+      <p style="margin-top:8px">Sell / consign: send photos, box label and insoles.</p>
+    </div>
+    <div>
+      <h3>Locations &amp; Meetups</h3>
+      <p>Online worldwide shipping, plus local meetups for genuine buyers.</p>
+      <p><b style="color:#fff">Local pickup</b> — by appointment, DM to arrange.</p>
+      <p><b style="color:#fff">Shipping</b> — tracked, worldwide, orders over $200 ship free.</p>
+    </div>
+  </div>
+
+  <!-- ALERTS -->
+  <section class="section" style="background:#0d0d0f;border-top:1px solid var(--line)">
+    <div class="wrap" style="display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center">
+      <div>
+        <p class="eyebrow">New arrivals, first</p>
+        <h2 style="font-size:clamp(24px,3.4vw,40px);margin:12px 0 12px">Get them before they're gone</h2>
+        <p class="muted" style="margin:0;max-width:48ch">Two or three pairs sell every week and most go to the first DM.
+          Drop your email for early access, or DM the word <b style="color:#fff">ALERTS</b> on Instagram to be added straight away.</p>
+      </div>
+      <div>
+        <form id="alertForm" novalidate style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="email" type="email" placeholder="you@email.com" aria-label="Email address"
+            style="flex:1;min-width:200px;background:var(--bg2);border:1px solid var(--line2);border-radius:2px;padding:13px 14px;outline:none;font-size:13.5px">
+          <button class="btn btn-white" type="submit">Notify me</button>
+        </form>
+        <p id="formNote" class="muted" style="font-size:12px;margin:12px 0 0">No spam — just the pairs worth your money.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#top"><b>KICKZ BY CHRIS</b><span>Authenticated Sneakers</span></a>
+        <p class="muted" style="font-size:13.5px;margin:16px 0 0;max-width:34ch">200+ pairs of authenticated sneakers. Buy new and pre-owned,
+          sell or consign, worldwide shipping. DM to cop.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop">All shoes</a></li>
+          <li><a href="#shop" data-jump="pre">Pre-owned</a></li>
+          <li><a href="#shop" data-jump="under150">Under $150</a></li>
+          <li><a href="#new">New arrivals</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#consign">Sell / consign</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a href="https://instagram.com/kickz_by__chris" target="_blank" rel="noopener">@kickz_by__chris</a></li>
+          <li><a href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">Message us</a></li>
+          <li>Ships worldwide · Replies in ~24h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbar">
+      <span>© <span id="year"></span> Kickz by Chris. Not affiliated with any sneaker brand.</span>
+      <span>Demo inventory — prices and pairs are editable in the page code.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="overlay"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle"></div>
+
+<!-- PICKUP LIST DRAWER -->
+<aside class="bagdrawer" id="bag" role="dialog" aria-modal="true" aria-labelledby="bagTitle">
+  <div class="baghead">
+    <div>
+      <p class="eyebrow" style="margin:0 0 5px">Not a checkout — a shopping message</p>
+      <h2 id="bagTitle" style="font-size:20px">Pickup List</h2>
+    </div>
+    <button class="bagclose" id="closeBag" aria-label="Close pickup list">✕</button>
+  </div>
+  <div class="bagbody" id="bagBody"></div>
+  <div class="bagfoot" id="bagFoot" hidden>
+    <div class="brow"><span>Pairs</span><span id="bagCountFoot">0</span></div>
+    <div class="brow"><span>Subtotal</span><span id="bagSub">$0</span></div>
+    <div class="brow"><span>Shipping</span><span>Quoted in DM</span></div>
+    <div class="brow big"><span>Total</span><span id="bagTotal">$0</span></div>
+    <div class="bagbtns">
+      <button class="btn btn-white" id="copyBtn">Copy pickup list</button>
+      <a class="btn btn-line" id="dmBtn" href="https://ig.me/m/kickz_by__chris" target="_blank" rel="noopener">Open DM</a>
+    </div>
+    <pre class="dmpreview" id="dmPreview"></pre>
+    <button class="btn btn-line" id="clearList" style="width:100%;margin-top:10px">Clear list</button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ================================================================
+   EDIT YOUR INVENTORY HERE
+   [brand, name, colorway, year, sku, styleCode, condition,
+    collection ("new" | "pre"), price, sizes[], stock, artworkColor]
+   collections & badges are derived below — just change the data.
+   ================================================================ */
+const IG = "kickz_by__chris";
+const DM = "https://ig.me/m/" + IG;
+
+const RAW = [
+  // ---- brand new, new arrivals ----
+  ["Jordan","Air Jordan 1 Retro High OG","Chicago Lost & Found",2022,"AJ1LF22","DZ5485-612","Brand New","new",540,[8,9,10,10.5,11],2,"#b8232c"],
+  ["Jordan","Air Jordan 4 Retro","Military Black",2022,"AJ4MB22","DH6927-111","Brand New","new",330,[8,9,10,11,12,13],3,"#3a3a42"],
+  ["Jordan","Air Jordan 4 Retro","Bred Reimagined",2024,"AJ4BR24","FV5029-006","Brand New","new",290,[9,10,10.5,11],2,"#25252b"],
+  ["Jordan","Trophy Room x Air Jordan 1 Low OG","Away",2024,"AJ1TRA24","FN0432-100","Brand New","new",610,[8,9,9.5,10],1,"#d8d8d2"],
+  ["Jordan","Air Jordan 3 Retro","White Cement Reimagined",2023,"AJ3WC23","DN3707-100","Brand New","new",285,[8,9,9.5,10,11],2,"#e2e0d8"],
+  ["Jordan","Air Jordan 11 Retro","Space Jam",2016,"AJ11SJ16","378037-003","Excellent, Near Deadstock","pre",420,[10,11,12],1,"#1d1d23"],
+  ["Jordan","Air Jordan 12 Retro","Flu Game",2016,"AJ12FG16","130690-002","Excellent, Original Box",	"pre",240,[9,10,11,12],2,"#1a1a1e"],
+
+  ["Nike","Nike SB Dunk Low Pro","Stingwater Magic Mushroom",2021,"SBDKMM21","DH7650-600","Brand New","new",250,[8,9,10,11],1,"#c2352f"],
+  ["Nike","Nike SB Dunk Low Pro","Paisley Brown",2022,"SBDKPB22","DH7534-200","Brand New","new",250,[8,9,10,11,12],2,"#8a6a4a"],
+  ["Nike","Nike SB Dunk Low Pro","Sandy Bodecker",2022,"SBDKSB22","FD8777-100","Brand New","new",180,[9,10,10.5,11],2,"#e6e2d6"],
+  ["Nike","Nike SB Dunk Low Pro","Instant Skateboards",2020,"SBDKIS20","CZ5128-400","Brand New","new",180,[8.5,9.5,10.5,11.5],1,"#5a7fb0"],
+  ["Nike","Dunk Low","Panda",2021,"DKLOWPA21","DD1391-100","Brand New","new",160,[7,8,9,10,11,12,13],6,"#eceae4"],
+  ["Nike","Dunk High","Strawberry Cough",2020,"DKSBC20","CW7097-600","Brand New","new",640,[9,10,10.5],1,"#c23a3a"],
+  ["Nike","Air Force 1 Low","Triple White",2023,"AF1TW23","315122-111","Brand New","new",110,[7,8,9,10,10.5,11,12,13],8,"#f2f0ea"],
+  ["Nike","Air Max 97","Silver Bullet",2022,"AM97SB22","DM0028-001","Brand New","new",275,[8,9,9.5,10,11],2,"#c3c7cf"],
+  ["Nike","Air Max 1","Patta Waves Noise Aqua",2021,"AM1PW21","DO9549-400","Excellent, Near Deadstock","pre",410,[9,10,11],1,"#5ec6c0"],
+  ["Nike","NikeCraft Mars Yard 2.0","Tom Sachs Space Camp",2017,"NCMS17","AA2261-100","Good, Original Box (Damaged)","pre",2800,[9.5,10],1,"#c9bfa8"],
+  ["Nike","Air Force 1 Low","Tiffany & Co. 1837",2023,"AF1TF23","DZ1382-001","Brand New","new",1700,[8,9,10,11],1,"#3fc6bd"],
+
+  ["Yeezy","Yeezy Boost 350 V2","Zebra",2017,"YZ350Z17","CP9654","Brand New","new",330,[8,9,10,11,12],3,"#eceae4"],
+  ["Yeezy","Yeezy Boost 350 V2","Onyx",2022,"YZ350O22","HQ4540","Brand New","new",265,[9,10,11,12],3,"#26262c"],
+  ["Yeezy","Yeezy Boost 700","Wave Runner",2017,"YZ700W17","B75571","Excellent, Near Deadstock","pre",380,[9,10,10.5],1,"#a8a2a4"],
+  ["Yeezy","Yeezy Slide","Onyx",2022,"YZSL22","HQ6448","Brand New","new",125,[8,9,10,11,12],5,"#2c2c33"],
+  ["Yeezy","Yeezy Foam RNNR","Ararat",2021,"YZFR21","G55486","Brand New","new",180,[9,10,11],2,"#e8e2d2"],
+
+  ["Adidas","adidas Samba OG","Aurora Coffee Sandy Pink",2024,"SAM24","IE7011","Brand New","new",100,[7,8,9,10,11],4,"#c9a08e"],
+  ["Adidas","adidas Campus 00s","Grey",2023,"CAM00S23","H03472","Brand New","new",140,[8,9,10,11],3,"#a5a5ac"],
+  ["Adidas","adidas Gazelle Indoor","Collegiate Green",2023,"GAZIG23","H06260","Brand New","new",165,[8.5,9.5,10.5,11.5],2,"#356b47"],
+
+  ["New Balance","New Balance 550","White Green",2022,"NB550WG22","BB550WT1","Brand New","new",155,[8,9,10,11,12],4,"#e8e6dd"],
+  ["New Balance","New Balance 9060","Sea Salt",2023,"NB9060SS23","U9060ECA","Brand New","new",205,[9,10,10.5,11],2,"#ded9cb"],
+  ["New Balance","New Balance 2002R Protection Pack","Rain Cloud",2022,"NB2002RRC22","M2002RDA","Brand New","new",235,[8.5,9.5,10.5],2,"#b4b4b9"],
+  ["New Balance","New Balance 2002R Protection Pack","Phantom",2022,"NB2002RPH22","M2002RDB","Brand New","new",120,[9,10,11],3,"#33333a"],
+  ["New Balance","New Balance 2002R","Olive",2022,"NB2002ROL22","M2002RNE","Good, Pre-Owned",	"pre",100,[10,11],1,"#6a6a4c"],
+  ["New Balance","New Balance 990v6","Grey",2023,"NB990V623","M990GL6","Excellent, Pre-Owned",	"pre",220,[9,10,11,12],2,"#a9a9ae"],
+  ["New Balance","New Balance 530","White Silver",2022,"NB530WS22","MR530EMA","Brand New","new",135,[7,8,9,10,11],5,"#ecebe5"],
+  ["New Balance","New Balance 1906R","Silver Metallic Cream",2023,"NB1906R23","M1906RDA","Brand New","new",180,[9,10,11],2,"#c6c6c6"],
+
+  ["Asics","ASICS Gel-1130","Blush Pure Silver",2023,"ASG1130B23","1203A327-700","Brand New","new",120,[8,9,10,11],3,"#e7cdc6"],
+  ["Asics","ASICS Gel-1130","Cream Carrier Grey",2023,"ASG1130C23","1201A256-113","Brand New","new",130,[8.5,9.5,10.5],2,"#e8e2d3"],
+  ["Asics","ASICS Gel-Kayano 14","Cream Black",2022,"ASK14CB22","1201A019-101","Brand New","new",190,[8,9,10,11],3,"#ece6d9"],
+  ["Salomon","Salomon XT-6","Vanilla Ice",2022,"SLXT6VI22","L41086600","Excellent, Pre-Owned","pre",230,[9,10,11],2,"#e0dac6"],
+  ["Vans","Vans Knu Skool","Black White",2023,"VNKSP23","VN0009QC6BT","Brand New","new",110,[8,9,10,11,12],4,"#22222a"],
+  ["Puma","PUMA Speedcat OG","Red",2024,"PMSCOG24","398846-01","Brand New","new",120,[8,9,10,11],3,"#c12a2a"],
+  ["Nike","Daniel Arsham x Nike","Crystal Edition Tee",2023,"NKDAT23","DR7957-010","Brand New","new",95,[],4,"#1c1c20"],
+  ["Nike","Nike Tech Fleece","Hoodie Black",2023,"NKTK23","FB7923-010","Brand New","new",110,[],3,"#16161a"],
+
+  // ---- sold out (social proof) ----
+  ["Jordan","Air Jordan 13 Retro","Playoffs",2023,"AJ13PO23","414571-062","Brand New","new",240,[10,11,12],0,"#1a1a20"],
+  ["Nike","Air Max Plus","Triple Black",2022,"AMPTB22","604133-090","Excellent, Pre-Owned","pre",180,[9,10],0,"#1c1c22"],
+  ["Jordan","Air Jordan 1 Retro High OG","Bred Toe",2018,"AJ1BT18","555088-610","Brand New","new",430,[9,10,11],0,"#b31d1d"],
+  ["Yeezy","Yeezy Boost 380","Alien Blue",2020,"YZ380AB20","GY2198","Excellent, Pre-Owned","pre",210,[9.5,10.5],0,"#8fa2b8"]
+];
+
+const PRODUCTS = RAW.map((p,i)=>({
+  id:i, brand:p[0], name:p[1], cw:p[2], year:p[3], sku:p[4], style:p[5], cond:p[6],
+  collection:p[7], price:p[8], sizes:p[9], stock:p[10], color:p[11],
+  sold: p[10] <= 0
+}));
+
+/* ---------- state ---------- */
+const state = { brand:"All", collection:"All", size:"", min:"", max:"", q:"", sort:"featured", list:[], jump:null };
+const $ = s => document.querySelector(s);
+const money = n => "$" + n.toLocaleString("en-US");
+
+/* ---------- artwork ---------- */
+function shoeArt(p, big){
+  const c1 = p.color, id = "g"+(big?"b":"s")+p.id;
+  return `<svg viewBox="0 0 300 170" role="img" aria-label="${p.name} ${p.cw}">
+    <defs><linearGradient id="${id}" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="#f1f1ef"/></linearGradient></defs>
+    <ellipse cx="150" cy="158" rx="112" ry="9" fill="#000" opacity=".5"/>
+    <path d="M14 143 C9 132 20 127 32 125 L262 116 C285 114 293 124 288 136 C283 148 262 151 244 151 L40 149 C25 148 16 148 14 143 Z" fill="#0a0a0c"/>
+    <path d="M15 139 C11 130 20 125 32 123 L264 114 C284 112 291 120 287 129 C283 138 262 143 246 143 L40 142 C26 142 17 143 15 139 Z" fill="#f5f5f2"/>
+    <path d="M40 124 C36 100 50 80 80 71 C99 65 113 55 127 48 C147 39 164 45 169 62 L182 104 C196 112 222 114 256 113 L40 124 Z" fill="url(#${id})"/>
+    <ellipse cx="52" cy="112" rx="16" ry="11" transform="rotate(-8 52 112)" fill="#fbfbf9"/>
+    <path d="M62 118 C94 112 128 92 160 68" stroke="#0b0b0d" stroke-width="9" stroke-linecap="round" fill="none" opacity=".5"/>
+    <g stroke="#f7f7f4" stroke-width="5" stroke-linecap="round" opacity=".9">
+      <line x1="78" y1="101" x2="94" y2="90"/><line x1="88" y1="90" x2="104" y2="79"/>
+      <line x1="98" y1="79" x2="114" y2="68"/><line x1="108" y1="68" x2="124" y2="57"/>
+    </g>
+    <ellipse cx="140" cy="58" rx="29" ry="11" transform="rotate(-24 140 58)" fill="rgba(8,8,10,.6)"/>
+    <ellipse cx="140" cy="58" rx="29" ry="11" transform="rotate(-24 140 58)" fill="none" stroke="#fbfbf9" stroke-width="3"/>
+    <rect x="246" y="100" width="22" height="14" rx="4" transform="rotate(-6 257 107)" fill="#fbfbf9" opacity=".85"/>
+  </svg>`;
+}
+
+/* ---------- labels ---------- */
+function flagFor(p){
+  if(p.sold) return `<span class="flag sold">Sold Out</span>`;
+  if(p.cond.includes("Brand New") && p.stock <= 2) return `<span class="flag hot">Only ${p.stock} Left</span>`;
+  if(p.cond.includes("Brand New")) return `<span class="flag new">Brand New</span>`;
+  return `<span class="flag pre">Pre-Owned</span>`;
+}
+function variantLine(p){
+  if(!p.sizes.length) return `${p.cond} · Clothing / Apparel`;
+  const m = p.sizes[0];
+  return `${m}M/${(m+1.5).toFixed(1).replace(/\.0$/,"")}W - ${p.cond} · ${p.sizes.length} size${p.sizes.length>1?"s":""} available`;
+}
+function subLine(p){
+  return p.brand === "Adidas" || p.brand === "Nike" || p.brand === "Vans" || p.brand === "Puma"
+    ? p.brand + (p.sizes.length ? "" : " Apparel") : p.brand;
+}
+
+/* ---------- card ---------- */
+function cardHTML(p, showSub){
+  return `<button class="card" data-id="${p.id}" aria-label="View ${p.name} ${p.cw}">
+    <div class="thumb" style="--c1:${p.color}">
+      ${flagFor(p)}
+      ${shoeArt(p)}
+    </div>
+    <div class="cardinfo">
+      <h3>${p.name} ${p.cw}</h3>
+      <p class="variants">${variantLine(p)}</p>
+      ${showSub ? `<p class="variants" style="color:#8a8a94">${subLine(p)}</p>` : ""}
+      ${p.sold
+        ? `<span class="stockp out">Sold out — DM for similar</span>`
+        : `<span class="price">${money(p.price)} <small>USD</small></span>`}
+      <span class="qadd" data-quick="${p.id}" role="button" aria-disabled="${p.sold}" aria-label="Add ${p.name} to pickup list">${p.sold?"Sold Out":"Add to Pickup List"}</span>
+    </div>
+  </button>`;
+}
+
+/* ---------- render bands ---------- */
+function renderBands(){
+  const avail = PRODUCTS.filter(p=>!p.sold);
+  $("#bandNew").innerHTML  = avail.filter(p=>p.collection==="new").slice(0,10).map(p=>cardHTML(p)).join("");
+  $("#bandPre").innerHTML  = avail.filter(p=>p.collection==="pre").slice(0,6).map(p=>cardHTML(p)).join("");
+  $("#bandUnder").innerHTML= avail.filter(p=>p.price<150).slice(0,6).map(p=>cardHTML(p)).join("");
+}
+
+/* ---------- filters UI ---------- */
+const BRANDS = Array.from(new Set(PRODUCTS.map(p=>p.brand)));
+const COLLECTIONS = [
+  ["All","All Shoes"],["new","New Arrivals"],["pre","Pre-Owned"],["under150","Under $150"],["sold","Sold Out"]
+];
+function renderFilterUI(){
+  const c = (list,labelFn) => list.map(([val,label])=>{
+    const n = countFor(val);
+    return `<button class="sitem" data-col="${val}" aria-pressed="${state.collection===val && labelFn==="col" || state.brand===val && labelFn==="brand"}">
+      ${label}<small>${n}</small></button>`;
+  }).join("");
+  $("#colList").innerHTML  = COLLECTIONS.map(([v,l])=>{
+    const n = countFor(v);
+    return `<button class="sitem" data-col="${v}" aria-pressed="${state.collection===v}">${l}<small>${n}</small></button>`;
+  }).join("");
+  $("#brandList").innerHTML = ["All",...BRANDS].map(b=>{
+    const n = b==="All" ? PRODUCTS.length : PRODUCTS.filter(p=>p.brand===b).length;
+    return `<button class="sitem" data-brand="${b}" aria-pressed="${state.brand===b}">${b==="All"?"All Brands":b}<small>${n}</small></button>`;
+  }).join("");
+  const sizes = Array.from(new Set(PRODUCTS.flatMap(p=>p.sizes))).sort((a,b)=>a-b);
+  $("#sizeBtns").innerHTML = sizes.map(s=>
+    `<button class="szbtn" data-size="${s}" aria-pressed="${String(state.size)===String(s)}">${s}</button>`).join("");
+}
+function countFor(v){
+  if(v==="All") return PRODUCTS.length;
+  if(v==="new") return PRODUCTS.filter(p=>p.collection==="new").length;
+  if(v==="pre") return PRODUCTS.filter(p=>p.collection==="pre").length;
+  if(v==="under150") return PRODUCTS.filter(p=>p.price<150).length;
+  if(v==="sold") return PRODUCTS.filter(p=>p.sold).length;
+  return 0;
+}
+
+/* ---------- filtering ---------- */
+function filtered(){
+  let out = PRODUCTS.filter(p=>{
+    if(state.collection==="new" && p.collection!=="new") return false;
+    if(state.collection==="pre" && p.collection!=="pre") return false;
+    if(state.collection==="under150" && !(p.price<150)) return false;
+    if(state.collection==="sold" && !p.sold) return false;
+    if(state.brand!=="All" && p.brand!==state.brand) return false;
+    if(state.size && !p.sizes.includes(Number(state.size))) return false;
+    if(state.min!=="" && p.price < Number(state.min)) return false;
+    if(state.max!=="" && p.price > Number(state.max)) return false;
+    if(state.q){
+      const hay = (p.brand+" "+p.name+" "+p.cw+" "+p.year+" "+p.sku+" "+p.style).toLowerCase();
+      if(!hay.includes(state.q.toLowerCase())) return false;
+    }
+    return true;
+  });
+  const s = state.sort;
+  out = out.slice().sort((a,b)=>{
+    if(s==="low")  return a.price-b.price;
+    if(s==="high") return b.price-a.price;
+    if(s==="az")   return (a.name+a.cw).localeCompare(b.name+b.cw);
+    if(s==="za")   return (b.name+b.cw).localeCompare(a.name+a.cw);
+    if(s==="new")  return b.year-a.year || b.id-a.id;
+    if(s==="old")  return a.year-b.year || a.id-b.id;
+    if(s==="best") return (a.stock-b.stock) || a.id-b.id;
+    return a.id-b.id;
+  });
+  return out.sort((a,b)=>(a.sold)-(b.sold));
+}
+
+function renderGrid(){
+  const items = filtered();
+  const avail = PRODUCTS.filter(p=>!p.sold).length;
+  $("#resCount").innerHTML = `<b style="color:#fff">${items.length}</b> item${items.length===1?"":"s"} shown · ${avail} available · ${PRODUCTS.length} listed`;
+
+  // active filter tags
+  const tags = [];
+  if(state.collection!=="All") tags.push(["col",state.collection, (COLLECTIONS.find(c=>c[0]===state.collection)||[,state.collection])[1]]);
+  if(state.brand!=="All") tags.push(["brand",state.brand,state.brand]);
+  if(state.size) tags.push(["size",state.size,"US "+state.size]);
+  if(state.min!=="") tags.push(["min","", "Min $"+state.min]);
+  if(state.max!=="") tags.push(["max","", "Max $"+state.max]);
+  if(state.q) tags.push(["q","", '"'+state.q+'"']);
+  $("#activeTags").innerHTML = tags.length
+    ? tags.map(t=>`<button class="atag" data-untag="${t[0]}">${t[2]} <b>✕</b></button>`).join("")
+    : "";
+
+  $("#grid").innerHTML = items.length ? items.map(p=>cardHTML(p,true)).join("")
+    : `<div class="empty"><b style="color:#fff;font-family:var(--display);font-size:20px">No pairs match those filters</b>
+       <p style="margin:12px 0 0">Try clearing a filter — or DM me the model and size and I'll source it for you.</p>
+       <p style="margin:18px 0 0"><a class="btn btn-white" href="${DM}" target="_blank" rel="noopener">Request a pair</a></p></div>`;
+}
+
+/* ---------- modal ---------- */
+function openProduct(id){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  const sizes = p.sizes.length ? p.sizes : [];
+  $("#modal").innerHTML = `
+    <button class="mclose" id="mClose" aria-label="Close">✕</button>
+    <div class="minner">
+      <div class="mimg" style="--c1:${p.color}">
+        <span class="flag ${p.sold?"sold":(p.cond.includes("Brand New")?"new":"pre")}" style="position:absolute;top:0;left:0">${p.sold?"Sold Out":(p.cond.includes("Brand New")?"Brand New":"Pre-Owned")}</span>
+        ${shoeArt(p,true)}
+        <span class="idx">${p.brand} · ${p.year}</span>
+      </div>
+      <div class="mbody">
+        <h2 id="mTitle">${p.name} ${p.cw}</h2>
+        <p class="msku">${p.style} · ${p.sku}</p>
+        <div class="mprice">${money(p.price)} <small>USD · shipping quoted in DM</small></div>
+        <p class="mnote">${p.cond} · ${p.sold?"Sold out":(p.stock===1?"Only 1 pair left":p.stock+" pairs in stock")}</p>
+
+        ${sizes.length ? `
+        <div class="mlabel">Select size (US Men's) <span id="sizeEcho">${sizes[0]}</span></div>
+        <div class="szbtns" id="mSizes">
+          ${sizes.map((s,i)=>`<button class="szbtn" data-msize="${s}" aria-pressed="${i===0}">${s}</button>`).join("")}
+        </div>` : `<div class="mlabel">Apparel / Accessory</div>
+        <p class="mnote">One-size listing — message me for measurements and fit.</p>`}
+
+        <div class="mbtns">
+          <button class="btn btn-white" id="mAdd" ${p.sold?"disabled style='opacity:.5;cursor:not-allowed'":""}>
+            ${p.sold?"Sold Out":"Add to Pickup List"}</button>
+          <a class="btn btn-ig" href="${DM}" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2c2.7 0 3.1 0 4.1.1 1.1 0 1.8.2 2.4.5.6.2 1.1.6 1.6 1s.8 1 1 1.6c.3.6.5 1.3.5 2.4.1 1 .1 1.4.1 4.1s0 3.1-.1 4.1c0 1.1-.2 1.8-.5 2.4-.2.6-.6 1.1-1 1.6s-1 .8-1.6 1c-.6.3-1.3.5-2.4.5-1 .1-1.4.1-4.1.1s-3.1 0-4.1-.1c-1.1 0-1.8-.2-2.4-.5-.6-.2-1.1-.6-1.6-1s-.8-1-1-1.6c-.3-.6-.5-1.3-.5-2.4C2 15.1 2 14.7 2 12s0-3.1.1-4.1c0-1.1.2-1.8.5-2.4.2-.6.6-1.1 1-1.6s1-.8 1.6-1c.6-.3 1.3-.5 2.4-.5C8.9 2 9.3 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zm5.3-8.5a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z"/></svg>
+            Message us</a>
+        </div>
+
+        <div class="mmeta">
+          <span><b>Condition:</b> ${p.cond}</span>
+          <span><b>Box:</b> ${p.cond.includes("No Box")?"No original box":"Original box included where stated"}</span>
+          <span><b>Authenticity:</b> 100% authentic — verified before listing and again before shipping</span>
+          <span><b>Shipping:</b> tracked worldwide from $15, free over $200 · returns as per our policy</span>
+        </div>
+      </div>
+    </div>`;
+  const m = $("#modal");
+  m.classList.add("on"); $("#overlay").classList.add("on"); document.body.classList.add("locked");
+  $("#mClose").onclick = closeProduct;
+  m.querySelectorAll("[data-msize]").forEach(b=>{
+    b.onclick = ()=>{
+      m.querySelectorAll("[data-msize]").forEach(x=>x.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true");
+      const echo = $("#sizeEcho"); if(echo) echo.textContent = b.dataset.msize;
+    };
+  });
+  const addBtn = $("#mAdd");
+  if(addBtn && !p.sold) addBtn.onclick = ()=>{
+    const sel = m.querySelector('[data-msize][aria-pressed="true"]');
+    addToList(p.id, sel ? Number(sel.dataset.msize) : "O/S");
+  };
+}
+function closeProduct(){
+  $("#modal").classList.remove("on"); $("#overlay").classList.remove("on"); document.body.classList.remove("locked");
+}
+
+/* ---------- pickup list ---------- */
+function addToList(id, size){
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p || p.sold) return;
+  const ex = state.list.find(i=>i.id===id && String(i.size)===String(size));
+  if(ex) ex.qty++; else state.list.push({id, size, qty:1});
+  renderBag();
+  toast(`${p.name} ${p.cw} · ${size} added to your pickup list`);
+}
+function removeLine(i){ state.list.splice(i,1); renderBag(); }
+const bagTotal = ()=> state.list.reduce((t,i)=> t + PRODUCTS.find(p=>p.id===i.id).price * i.qty, 0);
+const unitCount = ()=> state.list.reduce((t,i)=> t+i.qty, 0);
+
+function dmMessage(){
+  const lines = state.list.map(i=>{
+    const p = PRODUCTS.find(x=>x.id===i.id);
+    const sz = i.size==="O/S" ? "O/S" : "US "+i.size;
+    return `• ${p.name} — ${p.cw} (${sz}) — ${money(p.price)}${i.qty>1?` x${i.qty}`:""}`;
+  });
+  return `Hi Chris — interested in these pairs from your site:\n${lines.join("\n")}\n\nSubtotal: ${money(bagTotal())}\nShipping: to be confirmed\n\nAre they all still available?`;
+}
+
+function renderBag(){
+  $("#bagCount").textContent = unitCount();
+  const body = $("#bagBody"), foot = $("#bagFoot");
+  if(!state.list.length){
+    body.innerHTML = `<div class="empty" style="border:0"><b style="color:#fff;font-family:var(--display);font-size:18px">Your pickup list is empty</b>
+      <p style="margin:12px 0 0">Add pairs from the vault and I'll build a message you can paste straight into my Instagram DMs.</p></div>`;
+    foot.hidden = true; return;
+  }
+  body.innerHTML = state.list.map((i,idx)=>{
+    const p = PRODUCTS.find(x=>x.id===i.id);
+    const sz = i.size==="O/S" ? "O/S" : "US "+i.size;
+    return `<div class="lineitem">
+      <div class="lthumb" style="--c1:${p.color}">${shoeArt(p)}</div>
+      <div>
+        <b>${p.name} ${p.cw}</b>
+        <span>${sz} · ${p.cond}${i.qty>1?` · qty ${i.qty}`:""}</span>
+      </div>
+      <div class="lright">
+        <span class="lprice">${money(p.price*i.qty)}</span>
+        <button class="rm" data-rm="${idx}" aria-label="Remove">✕</button>
+      </div>
+    </div>`;
+  }).join("");
+  foot.hidden = false;
+  $("#bagSub").textContent = money(bagTotal());
+  $("#bagTotal").textContent = money(bagTotal());
+  $("#dmPreview").textContent = dmMessage();
+  $("#bagCountFoot").textContent = unitCount();
+}
+
+function openBag(){ $("#bag").classList.add("on"); $("#overlay").classList.add("on"); document.body.classList.add("locked"); }
+function closeBag(){ $("#bag").classList.remove("on"); $("#overlay").classList.remove("on"); document.body.classList.remove("locked"); }
+
+let toastT;
+function toast(msg){
+  const t = $("#toast"); t.textContent = msg; t.classList.add("on");
+  clearTimeout(toastT); toastT = setTimeout(()=>t.classList.remove("on"), 2800);
+}
+
+/* ---------- jumping / filters ---------- */
+function jumpTo(kind){
+  if(kind==="pre" || kind==="new" || kind==="under150" || kind==="sold"){
+    state.collection = kind; state.brand="All"; state.size="";
+  } else {
+    state.brand = kind; state.collection="All"; state.size="";
+  }
+  renderFilterUI(); renderGrid();
+  document.getElementById("shop").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e=>{
+  const jump = e.target.closest("[data-jump]");
+  if(jump){ e.preventDefault(); jumpTo(jump.dataset.jump); return; }
+
+  const untag = e.target.closest("[data-untag]");
+  if(untag){
+    const k = untag.dataset.untag;
+    if(k==="col") state.collection="All"; if(k==="brand") state.brand="All";
+    if(k==="size") state.size=""; if(k==="min") state.min="";
+    if(k==="max") state.max=""; if(k==="q"){ state.q=""; $("#searchInput").value=""; }
+    $("#minP").value = state.min; $("#maxP").value = state.max;
+    renderFilterUI(); renderGrid(); return;
+  }
+  const col = e.target.closest("[data-col]");
+  if(col){ state.collection = col.dataset.col; renderFilterUI(); renderGrid(); return; }
+  const br = e.target.closest("[data-brand]");
+  if(br){ state.brand = br.dataset.brand; renderFilterUI(); renderGrid(); return; }
+  const sz = e.target.closest("[data-size]");
+  if(sz){ state.size = (String(state.size)===sz.dataset.size) ? "" : sz.dataset.size; renderFilterUI(); renderGrid(); return; }
+
+  const quick = e.target.closest("[data-quick]");
+  if(quick){ e.stopPropagation(); const p = PRODUCTS.find(x=>x.id===Number(quick.dataset.quick));
+    addToList(p.id, p.sizes.length ? p.sizes[0] : "O/S"); return; }
+
+  const rm = e.target.closest("[data-rm]");
+  if(rm){ removeLine(Number(rm.dataset.rm)); return; }
+
+  const card = e.target.closest(".card");
+  if(card && !quick){ openProduct(Number(card.dataset.id)); return; }
+});
+
+$("#minP").addEventListener("input", e=>{ state.min = e.target.value; renderGrid(); });
+$("#maxP").addEventListener("input", e=>{ state.max = e.target.value; renderGrid(); });
+$("#sortSel").addEventListener("change", e=>{ state.sort = e.target.value; renderGrid(); });
+$("#clearFilters").addEventListener("click", ()=>{
+  state.brand="All"; state.collection="All"; state.size=""; state.min=""; state.max=""; state.q="";
+  $("#minP").value=""; $("#maxP").value=""; $("#searchInput").value="";
+  renderFilterUI(); renderGrid(); toast("Filters cleared");
+});
+
+$("#searchToggle").addEventListener("click", ()=>{ const s=$("#searchbar"); s.classList.toggle("on"); if(s.classList.contains("on")) $("#searchInput").focus(); });
+$("#searchbar").addEventListener("submit", e=>{
+  e.preventDefault(); state.q = $("#searchInput").value.trim();
+  renderGrid(); document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+});
+
+$("#openBag").addEventListener("click", openBag);
+$("#closeBag").addEventListener("click", closeBag);
+$("#overlay").addEventListener("click", ()=>{ closeBag(); closeProduct(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeBag(); closeProduct(); } });
+$("#clearList").addEventListener("click", ()=>{ state.list=[]; renderBag(); toast("Pickup list cleared"); });
+
+$("#copyBtn").addEventListener("click", async ()=>{
+  const text = dmMessage();
+  try{ await navigator.clipboard.writeText(text); toast("Copied — paste it into my Instagram DMs"); }
+  catch(err){
+    const pre = $("#dmPreview"); const r = document.createRange(); r.selectNodeContents(pre);
+    const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+    toast("Copy blocked — the message is selected, copy it manually");
+  }
+});
+
+/* ---------- wanted list / footer / boot ---------- */
+function renderWanted(){
+  const wanted = PRODUCTS.filter(p=>p.sold || p.stock<=1).slice(0,6);
+  $("#wantedList").innerHTML = wanted.map(p=>`<li><i>→</i> <span>${p.name} ${p.cw} <span style="color:var(--dim)">— ${p.brand}</span></span></li>`).join("");
+}
+function renderTickerLike(){ /* ticker removed for cleaner editorial layout */ }
+
+$("#alertForm").addEventListener("submit", e=>{
+  e.preventDefault();
+  const v = $("#email").value.trim(), note = $("#formNote");
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)){
+    note.textContent = "That email doesn't look right — check it and try again.";
+    note.style.color = "#ff6b6b"; return;
+  }
+  note.textContent = `Almost done — DM me the word ALERTS on Instagram from @${IG} and mention ${v}.`;
+  note.style.color = "#fff"; $("#email").value = "";
+  toast("Send me the word ALERTS in DMs to confirm");
+});
+
+$("#year").textContent = new Date().getFullYear();
+renderBands(); renderFilterUI(); renderGrid(); renderBag(); renderWanted();
+</script>
+</body>
+</html>
+</｜DSML｜ parameter>
+</｜DSML｜ invoke>
+</｜DSML｜ calls>
